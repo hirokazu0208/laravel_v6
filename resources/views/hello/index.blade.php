@@ -17,11 +17,17 @@
 </head>
 <body>
 	<h1>Blade/Index</h1>
-	<p>{{$msg}}</p>
-    <form method="post" action="/hello">
-	@csrf
-	<input type="text" name="msg">
-	<input type="submit">
-</form>
+    <p>&#064;forディレクティブの例</p>
+    @foreach($data as $item)
+        @if($loop->first)
+            <p>※データ一覧</p>
+        @endif
+        <ul>
+            <li>No,{{$loop->iteration}} . {{$item}}</li>
+        </ul>
+        @if($loop->last)
+        <p>----ここまで</p>
+        @endif
+    @endforeach
 </body>
 </html>
