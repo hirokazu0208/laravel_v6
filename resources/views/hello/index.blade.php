@@ -17,17 +17,20 @@
 </head>
 <body>
 	<h1>Blade/Index</h1>
-    <p>&#064;forディレクティブの例</p>
-    @foreach($data as $item)
-        @if($loop->first)
-            <p>※データ一覧</p>
-        @endif
-        <ul>
-            <li>No,{{$loop->iteration}} . {{$item}}</li>
-        </ul>
-        @if($loop->last)
-        <p>----ここまで</p>
-        @endif
-    @endforeach
+    <p>&#064;whileディレクティブの例</p>
+    <ol>
+    @php 
+    $counter = 0;
+    @endphp
+
+    @while($counter < count($data))
+        <li>{{$data[$counter]}}</li>
+        
+        @php
+        $counter++;
+        @endphp
+        
+    @endwhile
+    </ol>
 </body>
 </html>
