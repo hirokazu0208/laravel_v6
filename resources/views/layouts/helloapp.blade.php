@@ -11,7 +11,7 @@ body{
 
 h1{
 	
-	font-size:50px;
+	font-size 50pt;;
 	text-align:right;
 	color:#f6f6f6;
 	margin:-20px 0px -30px 0px;
@@ -57,22 +57,26 @@ hr{
 </head>
 
 <body>
-<h1>@yield</h1>
-@section('menubar')
-<h2 class="menutitle">※メニュー</h2>
-<ul>
-    <li>@show</li>
-</ul>
-<hr size="1">
+	<h1>@yield('title')</h1>
+	<!-- 区画1:タイトル表示 -->
+		@section('menubar')
 
-<div class="content">
+	<h2 class="menutitle">※メニュー</h2>
 
-@yield('content')
+	<ul>
+		<li>@show</li>
+	</ul>
 
-</div>
+	<hr size="1">
 
-<div class="footer">
-@yield('footer')
-</div>
+	<div class="content">
+	<!-- contentsをはめ込む -->
+		@yield('content')
+	</div>
+
+	<div class="footer">
+	<!-- footerをはめ込む -->	
+		@yield('footer')
+	</div>
 </body>
 </hml>

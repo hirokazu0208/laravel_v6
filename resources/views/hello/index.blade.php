@@ -16,21 +16,28 @@
 </style>
 </head>
 <body>
-	<h1>Blade/Index</h1>
-    <p>&#064;whileディレクティブの例</p>
-    <ol>
-    @php 
-    $counter = 0;
-    @endphp
+    <!-- helloapp.blade.phpを継承 -->
+    @extends('layouts.helloapp')
+    <!-- 区画1 -->
+    @section('title', 'Index')
+    <!-- 区画2：上書き-->
+    @section('menubar')
+        <!-- 親を残し上書き-->
+        @parent
+        インデックスページ
+    
+    @endsection
+    <!-- 区画3 -->
+    @section('content')
 
-    @while($counter < count($data))
-        <li>{{$data[$counter]}}</li>
-        
-        @php
-        $counter++;
-        @endphp
-        
-    @endwhile
-    </ol>
+        <p>ここが本文のコンテンツです。</p>
+        <p>必要なだけ記述できます</p>
+
+    @endsection
+    <!-- 区画4 -->
+    @section('footer')
+        copyright 2021 HK
+    @endsection
+
 </body>
 </html>
